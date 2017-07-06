@@ -10,10 +10,11 @@ class FavoriteButton extends React.Component {
     super(props, context);
 
     this.state = {
-      searchTerm: ''
+      dropdown: true
     };
 
     this.setFavorite = this.setFavorite.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
 
   }
 
@@ -22,15 +23,23 @@ class FavoriteButton extends React.Component {
     this.props.actions.addToFavorite(data);
   }
 
+  toggleDropdown() {
+    this.setState({dropdown: !this.state.dropdown});
+  }
+
   render() {
     return (
       <div>
-        <button type="button" className="btn btn-secondary" onClick={() => this.setFavorite(this.props.data)}>Favorite</button>
-        <ul>
-          <li>{this.props.data.id.videoId}</li>
-          <li>are</li>
-          <li>mere</li>
-        </ul>
+        {/*<button type="button" className="btn btn-secondary" onClick={() => this.setFavorite(this.props.data)}>Favorite</button>*/}
+        <button type="button" className="btn btn-secondary" onClick={this.toggleDropdown}>Favorite</button>
+        {this.state.dropdown &&
+        <div className="rd-dropdown">
+          <div className="rd-dropdown-item"><span className="rd-dropdown-item-label">ana</span><input type="checkbox"/></div>
+          <div className="rd-dropdown-item"><span className="rd-dropdown-item-label">ana</span><input type="checkbox"/></div>
+          <div className="rd-dropdown-item"><span className="rd-dropdown-item-label">ana</span><input type="checkbox"/></div>
+        </div>
+
+        }
       </div>
     );
   }

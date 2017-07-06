@@ -18,3 +18,27 @@ nav {
   width: 600px;
   display: flex;
 }
+
+.rd-dropdown {
+  border: 1px solid grey;
+  border-bottom: none;
+  border-radius: 2px;
+}
+
+.rd-dropdown-item {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rd-dropdown-item:hover {
+  background-color: lightgray;
+}
+
+.rd-dropdown-item input {
+  cursor: pointer;
+}
+
+.rd-dropdown-item-label {
+  padding: 2px;
+}
